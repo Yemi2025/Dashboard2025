@@ -1,0 +1,109 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Ofsted Reporting Dashboard {% endblock %}
+
+{% block content %}
+<div class="container-fluid d-flex p-0">
+  <!-- Sidebar -->
+  <nav class="bg-light p-3 sidebar">
+    <h4>Select Company</h4>
+    <form id="company-form">
+      <div class="input-group mb-2 autocomplete-container">
+        <input type="text" id="company-search" class="form-control" placeholder="Search company..." autocomplete="off" />
+        <button id="search-btn" class="btn">
+          <i class="fas fa-search search-icon"></i>
+        </button>
+        <ul id="autocomplete-list" class="list-group"></ul>
+      </div>
+      <!-- Clear Search Link -->
+      <div class="d-flex justify-content-end">
+        <a href="#" id="clear-search" class="text-orange small mt-2 d-block text-center">Clear</a>
+      </div>
+    </form>
+
+    <!-- Filters -->
+    <h5>Filters</h5>
+    <form id="filters-form">
+      <div class="mb-3">
+        <label for="category-filter" class="form-label">Category</label>
+        <select id="category-filter" class="form-select">
+          <option value="all">All Categories</option>
+          <option value="new_company">New Company</option>
+          <option value="update">Update</option>
+        </select>
+      </div>
+    </form>
+
+    <!-- Statistics -->
+    <h5>Statistics</h5>
+    <ul id="statistics-list" class="list-group">
+      <li class="list-group-item">Total Companies: <strong id="total-companies">N/A</strong></li>
+      <li class="list-group-item">Categories: <strong id="categories">N/A</strong></li>
+      <li class="list-group-item">Hierarchy Depth: <strong id="hierarchy-depth">N/A</strong></li>
+    </ul>
+
+    <!-- Company Info -->
+    <br />
+    <h5>Company Info</h5>
+    <p id="company-description" class="text-muted">Select a company to view details.</p>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container-fluid main-content p-4">
+    <!-- Tabs -->
+    <ul class="nav nav-tabs mt-2" id="dashboard-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="overview-tab" data-bs-toggle="tab" href="#overview" role="tab">Overview</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="reports-tab" data-bs-toggle="tab" href="#reports" role="tab">Reports</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="analytics-tab" data-bs-toggle="tab" href="#analytics" role="tab">Analytics</a>
+      </li>
+    </ul>
+
+    <div class="tab-content mt-3">
+      <!-- Overview Tab -->
+      <div id="overview" class="tab-pane fade show active" role="tabpanel">
+        <h4>Overview: <span id="selected-company-name"></span></h4>
+        <p>Displaying data for the selected company.</p>
+        <!-- Overview content goes here -->
+      </div>
+
+      <!-- Reports Tab -->
+      <div id="reports" class="tab-pane fade" role="tabpanel">
+        <h4>Reports Section: <span id="reports-company-name"></span></h4>
+        <div id="reports-content">
+            <!-- Reports content dynamically loaded here -->
+          </div>
+      </div>
+
+      <!-- Analytics Tab -->
+      <div id="analytics" class="tab-pane fade" role="tabpanel">
+        <h4>Analytics Dashboard: <span id="analytics-company-name"></span></h4>
+        <p>Data analysis and performance metrics.</p>
+          <div id="analytics-content">
+            <!-- Analytics content dynamically loaded here -->
+          </div>
+      </div>
+    </div>
+
+    <!-- Chart Section -->
+    <div id="graph-container" class="mt-4">
+      <!-- Placeholder -->
+      <div id="graph-placeholder" class="d-flex justify-content-center align-items-center flex-column">
+        <i class="fas fa-search fa-6x text-muted opacity-25"></i>
+        <p class="text-muted mt-3">Search for a company to display the chart</p>
+      </div>
+
+      <!-- Graph -->
+      <div id="graph"></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+
+

@@ -1,0 +1,21 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Analytics - {{ selected_company }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h4>Analytics for {{ selected_company }}</h4>
+
+    {% if error %}
+        <p class="text-danger">Error: {{ error }}</p>
+    {% else %}
+        <div class="row">
+            <div class="col-md-12">
+                <div id="analytics-chart">
+                    {{ plot_html|safe }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

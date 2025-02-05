@@ -1,0 +1,37 @@
+{% extends "dashboard/base.html" %}
+
+{% block title %}Reports - {{ selected_company }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <h4>Reports for {{ selected_company }}</h4>
+
+  {% if charts %}
+  <div class="row">
+    <!-- First Row -->
+    <div class="col-md-6">
+      <div id="provider-chart">
+        {{ charts.provider_chart|safe }}
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div id="region-chart">
+        {{ charts.region_chart|safe }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <!-- Second Row -->
+    <div class="col-md-12">
+      <div id="inspection-chart">
+        {{ charts.inspection_chart|safe }}
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <p>No data available for this company.</p>
+  {% endif %}
+</div>
+{% endblock %}
+

@@ -1,0 +1,156 @@
+.bg-green {
+    background-color: #009974 !important;
+}
+
+.sidebar {
+    width: 350px;
+    flex-shrink: 0;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex-grow: 1;
+}
+
+.nav-tabs {
+    border-bottom: 2px solid #009974;
+}
+
+.nav-tabs .nav-link {
+    color: #009974;
+    font-weight: 600;
+    border-radius: 12px 12px 0 0;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #009974 !important;
+    color: white !important;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Autocomplete dropdown */
+#autocomplete-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ddd;
+    z-index: 1050;
+    max-height: 150px;
+    overflow-y: auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+#autocomplete-list li {
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+#autocomplete-list li:hover {
+    background-color: #f0f0f0;
+}
+
+.search-icon {
+    color: white !important;
+}
+
+#search-btn {
+    background-color: #009974 !important;
+    border-color: #009974 !important;
+    border-radius: 0 8px 8px 0;
+    padding: 8px 15px;
+    transition: background 0.3s ease-in-out;
+}
+
+#search-btn:hover {
+    background-color: #007b63 !important;
+}
+
+/* Graph container and responsiveness */
+#graph-container {
+    width: 100%;
+    min-height: 600px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Add padding for breathing room */
+    margin-top: 20px; /* Space from other content */
+}
+
+#graph-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-color: #ffffff;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#graph {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1200px; /* Prevent graph from stretching too wide */
+    min-height: 600px;
+    margin: 0 auto;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Placeholder and graph transitions */
+#graph-placeholder,
+#graph {
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+
+/* Clear button */
+.text-orange {
+    color: #ff7b25 !important;
+    font-weight: 600;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.text-orange:hover {
+    color: #e6691c !important;
+    text-decoration: underline;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .input-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #search-btn {
+        margin-top: 8px;
+        border-radius: 8px;
+    }
+
+    #graph-container {
+        min-height: 400px;
+    }
+
+    #graph {
+        min-height: 400px;
+    }
+}
+
+  
